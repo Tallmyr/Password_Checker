@@ -9,17 +9,17 @@ def Main():
     loop = True
     print("Welcome to Password Checker")
     while loop:
-        checkpassword()
+        password = hashlib.sha1(
+            getpass("Enter Password to test: ").encode()).hexdigest().upper()
+        result = checkpassword(password)
+        print(result)
         loop = strtobool(
             input("Do you wish to test another password? "
                   "[Yes, y] / [No, n] ").lower())
 
 
-def checkpassword():
+def checkpassword(password):
     # Take password input, hash, convert to text and make upper case
-    password = hashlib.sha1(
-        getpass("Enter Password to test: ").encode()).hexdigest().upper()
-
     front = password[:5]  # First 5 letters
     back = password[5:]  # rest of string
 
@@ -29,10 +29,10 @@ def checkpassword():
     result = re.search(regex, pwlist.text)
 
     if result is not None:  # If nothing found result is None
-        print("Found your password {} times".format(
+        return("Found your password {} times".format(
             result.group(1)))  # Group 1 for the number
     else:
-        print("Your password was not found.")
+        return("Your password was not found.")
 
 
 if __name__ == "__main__":
