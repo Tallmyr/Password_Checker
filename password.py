@@ -16,8 +16,9 @@ def Main():
 
 
 def checkpassword():
-    password = hashlib.sha1(getpass("Enter Password: ").encode()).hexdigest(
-    ).upper()  # Take arg, hash, convert to text and make upper case
+    # Take password input, hash, convert to text and make upper case
+    password = hashlib.sha1(
+        getpass("Enter Password to test: ").encode()).hexdigest().upper()
 
     front = password[:5]  # First 5 letters
     back = password[5:]  # rest of string
