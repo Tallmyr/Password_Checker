@@ -1,9 +1,18 @@
 [tool.poetry]
-name = "password-checker"
+name = "hibp-pw-checker"
 version = "1.0"
-description = "Password Checker using Python 3.8"
+description = "Checks passwords against Have I Been Pwned Database"
 authors = ["Simon Tallmyr <simon@tallmyr.se>"]
 license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/Tallmyr/Password-Checker"
+repository = "https://github.com/Tallmyr/Password-Checker"
+keywords = ["password"]
+
+include = [
+    "LICENSE",
+]
+
 
 [tool.poetry.dependencies]
 python = "^3.8"

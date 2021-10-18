@@ -1,4 +1,4 @@
-Password Checker using Python 3.7
-Can be installed using Poetry
+Checks passwords against Have I Been Pawned Database
 
-Only dependency is Request
+This can be downloaded and run using main.py for command-line version.
+Alternatively, this can also be installed using the whl in releases.
