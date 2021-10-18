@@ -11,7 +11,7 @@ def Main():
     while loop:
         hash = hash_password(getpass("Enter Password to test: "))
         result = checkpassword(hash)
-        print(result)
+        print_output(result)
         loop = strtobool(
             input(
                 "Do you wish to test another password? " "[Yes, y] / [No, n] "
@@ -20,11 +20,13 @@ def Main():
 
 
 def hash_password(password: str):
+    """ Take password input, hash, convert to text and make upper case """
     return hashlib.sha1(password.encode()).hexdigest().upper()
 
 
 def checkpassword(hash: str):
-    # Take password input, hash, convert to text and make upper case
+    """ Takes a hashed string, split and send to pwnedpasswords and return an int or None"""
+
     front = hash[:5]  # First 5 letters
     back = hash[5:]  # rest of string
 
@@ -35,9 +37,13 @@ def checkpassword(hash: str):
 
     if result is not None:  # If nothing found result is None
         return result.group(1)
-    else:
-        return None
 
+
+def print_output(result: int):
+    if result is not None:
+        print(f"WARNING: Your password was found {result} times!")
+    else:
+        print("Your Password was not found, that is great news!")
 
 
 if __name__ == "__main__":
