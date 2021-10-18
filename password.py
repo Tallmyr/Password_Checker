@@ -1,3 +1,4 @@
+from typing import Optional
 import requests
 import hashlib
 import re
@@ -6,6 +7,7 @@ from getpass import getpass
 
 
 def Main():
+    """Run Terminal version of Password Checker"""
     loop = True
     print("Welcome to Password Checker")
     while loop:
@@ -19,13 +21,15 @@ def Main():
         )
 
 
-def hash_password(password: str):
-    """ Take password input, hash, convert to text and make upper case """
+def hash_password(password: str) -> str:
+    """Take password input, hash, convert to text and make upper case"""
     return hashlib.sha1(password.encode()).hexdigest().upper()
 
 
-def checkpassword(hash: str):
-    """ Takes a hashed string, split and send to pwnedpasswords and return an int or None"""
+def checkpassword(hash: str) -> Optional[int]:
+    """Takes a hashed string,
+    split and send to pwnedpasswords
+    and return an int or None"""
 
     front = hash[:5]  # First 5 letters
     back = hash[5:]  # rest of string
@@ -40,6 +44,7 @@ def checkpassword(hash: str):
 
 
 def print_output(result: int):
+    """Print result to console. Accepts an int or None"""
     if result is not None:
         print(f"WARNING: Your password was found {result} times!")
     else:
