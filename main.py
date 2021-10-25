@@ -23,7 +23,7 @@ def print_output(result: int):
     if result is not None:
         print(f"WARNING: Your password was found {result} times!")
     else:
-        print("Your Password was not found, that is great news!")
+        print("Your Password was not found, that is great news! And now we are making this a very long row...")
 
 
 if __name__ == "__main__":
