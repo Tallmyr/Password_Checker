@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "hibp-pw-checker"
+name = "Password_Checker"
 version = "1.0"
 description = "Checks passwords against Have I Been Pwned Database"
 authors = ["Simon Tallmyr <simon@tallmyr.se>"]
