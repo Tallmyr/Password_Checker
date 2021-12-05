@@ -1,6 +1,6 @@
 from distutils.util import strtobool
 from getpass import getpass
-from hibp_pw_checker import hash_password, check_password
+from Password_Checker import hash_password, check_password
 
 
 def Main():
